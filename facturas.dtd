@@ -1,30 +1,63 @@
+<!-- Elementos reusables -->
+<!ELEMENT nombre (#PCDATA) >
+<!ELEMENT descripcion (#PCDATA) >
+<!ELEMENT precio (#PCDATA) >
+<!ELEMENT iva (#PCDATA) >
+
 <!-- Facturas -->
 <!ELEMENT facturas (provincias, poblaciones, clientes, productos, factura+)>
 
 <!-- Provincias -->
 <!ELEMENT provincias (provincia+) >
+
+<!-- Provincia -->
 <!ELEMENT provincia (nombre) >
 <!ATTLIST provincia id CDATA #REQUIRED>
-<!ELEMENT nombre (#PCDATA) >
 
 <!-- Poblaciones -->
 <!ELEMENT poblaciones (poblacion+) >
+
+<!-- Poblacion -->
 <!ELEMENT poblacion (nombre) >
-<!ATTLIST poblacion 
-    id_poblacion CDATA #REQUIRED 
+<!ATTLIST poblacion id_poblacion CDATA #REQUIRED 
     id_provincia CDATA #REQUIRED >
 
 <!-- Clientes -->
 <!ELEMENT clientes (cliente+) >
-<!ELEMENT cliente (nombre, apellidos, direccion)>
+
+<!-- Cliente -->
+<!ELEMENT cliente (nombre, apellidos, direccion*)>
 <!ATTLIST cliente dni CDATA #REQUIRED >
 <!ELEMENT apellidos (#PCDATA) >
+<!ELEMENT direccion (codigo_poblacion, calle, numero, cp) >
+
+<!-- Direccion -->
+<!ELEMENT codigo_poblacion (#PCDATA) >
+<!ELEMENT calle (#PCDATA) >
+<!ELEMENT numero (#PCDATA) >
+<!ELEMENT cp (#PCDATA) >
 
 <!-- Productos -->
 <!ELEMENT productos (producto+) >
+
+<!-- Producto -->
 <!ELEMENT producto (descripcion, precio, iva, stock) >
 <!ATTLIST producto id CDATA #REQUIRED >
-<!ELEMENT descripcion (#PCDATA) >
-<!ELEMENT precio (#PCDATA) >
-<!ELEMENT iva (#PCDATA) >
 <!ELEMENT stock (#PCDATA) >
+
+<!-- Factura -->
+<!ELEMENT factura (descuento, productos_facturados)>
+<!ATTLIST factura 
+    codigo CDATA #REQUIRED
+    fecha CDATA #REQUIRED
+    hora CDATA #REQUIRED
+    dni_cliente CDATA #REQUIRED >
+<!ELEMENT descuento (#PCDATA) >
+
+<!-- Productos Facturados -->
+<!ELEMENT productos_facturados (producto_facturado*) >
+
+<!-- Producto Facturado -->
+<!ELEMENT producto_facturado (unidades, descripcion, precio, iva) >
+<!ATTLIST producto_facturado id CDATA #REQUIRED >
+<!ELEMENT unidades (#PCDATA) >
