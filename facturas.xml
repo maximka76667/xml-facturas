@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE facturas SYSTEM "facturas.dtd">
+
+<facturas>
+    <provincias>
+        <provincia id="00">
+            <nombre> </nombre>
+        </provincia>
+    </provincias>
+    <poblaciones>
+        <poblacion id_poblacion="LLL" id_provincia="00">
+            <nombre> </nombre>
+        </poblacion>
+    </poblaciones>
+    <clientes>
+        <cliente dni="00000000L">
+            <nombre> </nombre>
+            <apellidos> </apellidos>
+            <direccion>
+                <codigo_poblacion>LLL</codigo_poblacion>
+                <calle> </calle>
+                <numero> </numero>
+                <cp>00000</cp>
+            </direccion>
+        </cliente>
+    </clientes>
+    <productos>
+        <!--  Datos Actuales  -->
+        <producto id="Referencia1">
+            <descripcion>Producto 1</descripcion>
+            <precio>000000.000</precio>
+            <iva>00</iva>
+            <stock>00</stock>
+        </producto>
+        <producto id="Referencia2">
+            <descripcion>Producto 2</descripcion>
+            <precio>000000.000</precio>
+            <iva>00</iva>
+            <stock>00</stock>
+        </producto>
+    </productos>
+    <factura codigo="X" fecha="dd/mm/aaaa" hora="hh:mm:ss" dni_cliente="00000000L">
+        <descuento>00</descuento>
+        <productos_facturados>
+            <producto_facturado id="Referencia1">
+                <unidades>000</unidades>
+                <descripcion>Producto 1</descripcion>
+                <!--  Estos datos podrían varian entre facturas  -->
+                <precio>000000.000</precio>
+                <iva>00</iva>
+            </producto_facturado>
+        </productos_facturados>
+    </factura>
+</facturas>

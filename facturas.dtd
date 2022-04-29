@@ -1,0 +1,30 @@
+<!-- Facturas -->
+<!ELEMENT facturas (provincias, poblaciones, clientes, productos, factura+)>
+
+<!-- Provincias -->
+<!ELEMENT provincias (provincia+) >
+<!ELEMENT provincia (nombre) >
+<!ATTLIST provincia id CDATA #REQUIRED>
+<!ELEMENT nombre (#PCDATA) >
+
+<!-- Poblaciones -->
+<!ELEMENT poblaciones (poblacion+) >
+<!ELEMENT poblacion (nombre) >
+<!ATTLIST poblacion 
+    id_poblacion CDATA #REQUIRED 
+    id_provincia CDATA #REQUIRED >
+
+<!-- Clientes -->
+<!ELEMENT clientes (cliente+) >
+<!ELEMENT cliente (nombre, apellidos, direccion)>
+<!ATTLIST cliente dni CDATA #REQUIRED >
+<!ELEMENT apellidos (#PCDATA) >
+
+<!-- Productos -->
+<!ELEMENT productos (producto+) >
+<!ELEMENT producto (descripcion, precio, iva, stock) >
+<!ATTLIST producto id CDATA #REQUIRED >
+<!ELEMENT descripcion (#PCDATA) >
+<!ELEMENT precio (#PCDATA) >
+<!ELEMENT iva (#PCDATA) >
+<!ELEMENT stock (#PCDATA) >
